@@ -1,0 +1,224 @@
+body {
+    margin: 0px;
+    padding:0px;
+    position: relative;
+    min-height: 100px;
+}
+
+
+h1{
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Kite One';
+}
+
+h1 a{
+    text-decoration: none;
+    color: #15428E; 
+}
+
+h2{
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Kite One';
+    color: #15428E;
+}
+
+#container {
+    /* Activation de flex sur le parent.
+       Les blocs enfants (les viv de class bloc ici) sont désormais des composants flexibles et ne s'empilent plus du haut vers le bas selon l'ordre d'écrire comme les blocs traditionnels
+    */
+    display : flex ;
+
+    /* S'il reste de la place dans le parent, il est réparti entre les items enfants (les div bloc ici) */
+    justify-content : space-between ;
+
+    /* les items enfants (les div bloc ici) peuvent passer à la ligne si ça manque de place sur la ligne en cours */    
+    flex-wrap: wrap ;
+    padding: 50px;
+    background-image: url("https://images.pexels.com/photos/992987/pexels-photo-992987.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.center{
+
+    width: 400px;
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.center a{
+    padding-left: 30px;
+    padding-right: 30px;
+    cursor: pointer;
+    width: auto;
+    height: 50px;
+    font-size: 25px;
+    font-family: 'Montserrat';
+    border-radius: 50px;
+    border: none;
+    color :#fff;
+    background-color: #15428E;
+    text-align: center;
+    text-decoration: none;
+}
+
+.center a:hover{
+    background: linear-gradient(#3A8EBA, #15428e);
+}
+
+div.bloc {
+
+
+    /* Les items flexibles ne sont pas autorisés à grossir ou à rétrécir */
+
+    flex-grow: 0 ;
+    flex-shrink: 0 ;
+
+    background-color : rgba(255, 255, 255, 0.76) ;
+    border-radius : 15px ;
+    border-width : 3px ;
+    border: none;
+    box-shadow: 10px 10px 5px 0px #312f2fa9;
+    margin: 50px;
+    width: 600px;
+}
+
+p{
+    font-size: 21px;
+    text-align: left;
+    font-family: 'Montserrat';
+    color: #000000;
+    margin: 20px;
+}
+
+
+nav#simple {
+    font-family : 'Montserrat';
+    background-color: #15428E;
+    
+    /* Les 2 enfants UL seront positionnés en flex, premier "à gauche", le second "à droite" */
+    display : flex ;
+    justify-content : space-between ;
+    align-items: center ;
+
+    line-height: 60px;
+
+    align-items: stretch;
+
+}
+
+nav#simple ul {
+    margin : 0px;
+    padding : 0px;
+
+    list-style-type: none ;
+
+    /* Encore du flex pour les li de chaque ul */
+    
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav#simple li.logo img {
+    vertical-align: middle;
+}
+
+nav#simple li {
+    padding-left : 20px ;
+    padding-right : 20px ;
+}
+
+nav#simple ul.items li:hover {
+    background: linear-gradient(#3A8EBA, #15428e);
+}
+
+
+nav#simple a {
+    text-decoration : none ;
+    color : #fff ;
+}
+        
+nav#simple li:hover a {
+    color : #FFF;
+}
+
+
+#searchbar{
+    
+    padding:15px;
+    border-radius: 10px;
+    border: none;
+}
+
+div.footer footer{
+    display : flex ;
+    justify-content : space-between;
+    padding: 0px;
+}
+
+div.footer a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.footer{
+
+    background-color: #303030;
+    width: 100%;
+    height: 200px;
+    bottom: 0px;
+    font-family: 'Montserrat';
+
+}
+
+.footer ul{
+    list-style-type: none ;
+    border: none;
+    display: flex;
+    margin-top: 0px;
+    padding: none;
+    width: auto;
+    height: auto;
+}
+
+footer {
+    position:absolute;
+    bottom:0px;
+    left: 0px;
+    right:0px;
+    width:100%;
+    height:80px;
+    background-color: #000000;
+}
+
+footer ul{
+    margin: auto;
+    display: flex;
+    list-style-type: none ;
+}
+
+footer li{
+    padding: 20px;
+    list-style-type: none ;
+}
+
+.footer li{
+    padding: 20px;
+}
+
+
+address {
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.footer a:hover{
+    color: #3A8EBA;
+}
+
+
+.bloc img{
+    border-radius: 50px;
+}

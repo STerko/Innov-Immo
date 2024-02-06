@@ -1,0 +1,341 @@
+body {
+    margin: 0px;
+    padding:0px;
+    position: relative;
+    min-height: 100px;
+}
+
+
+/* Les différents paramètres définissant le titre:*/
+
+
+h1{
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Kite One';
+
+}
+
+h1 a{
+
+    text-decoration: none;
+    color: #15428E;
+}
+
+
+/* Les différents paramètres définissant la barre de naviguation:*/
+
+
+nav#simple{
+    font-family : 'Montserrat';
+    background-color: #15428E;
+    
+    /* Les 2 enfants UL seront positionnés en flex, premier "à gauche", le second "à droite" */
+    display : flex ;
+    justify-content : space-between ;
+    align-items: center ;
+
+    line-height: 60px;
+
+    align-items: stretch;
+
+}
+
+nav#simple ul {
+    margin : 0px;
+    padding : 0px;
+
+    list-style-type: none ;
+
+    /* Encore du flex pour les li de chaque ul */
+    
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav#simple li.logo img {
+    vertical-align: middle;
+}
+
+nav#simple li {
+    padding-left : 20px ;
+    padding-right : 20px ;
+}
+
+nav#simple ul.items li:hover {
+    background: linear-gradient(#3A8EBA, #15428e);
+}
+
+
+nav#simple a {
+    text-decoration : none ;
+    color : #fff ;
+}
+        
+nav#simple li:hover a {
+    color : #FFF;
+}
+
+#searchbar{
+    padding:15px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+/* Les différents paramètres définissant le slider:*/
+
+
+:root {
+    --largImage : 1000px ;
+    --nbImages : 4 ;
+    --duree : 7s ;
+}
+
+.sliderPan {
+    /* Pour que les slides se mettent un à coté de l'autre dans le sliderPan */
+    display: flex;  
+    /* Calcul de la largeur de ce "PAN" : nbre d'images x largeur d'images */
+    width: calc(var(--largImage)*var(--nbImages));
+    /* on associé l'animation créée "deplacement" pour décaler petit à petit les images dans le sliderPan */
+    animation: deplacement calc(var(--nbImages)*var(--duree)) infinite ease-in-out;
+}
+
+.sliderView {
+    /* Calcul de la largeur de la vue (1 fois la largeur de l'image) */
+    width: var(--largImage);
+    /* Tout ce qui dépasse cette vue n'est pas visible donc on ne verra qu'une seule image à la fois */
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    padding-bottom: 20px;
+    height: auto;
+    width: auto;
+    background-color: #15428E;
+    
+
+    
+}
+
+/* L'animation suivante n'est pas top car ne s'adapte pas automatiquement au nombre d'images :( */
+
+@keyframes deplacement {
+    0% {
+        transform: translate(0);
+    }
+    25% {
+        /* On décale le dliderPan dans la vue (sliderVue) vers la gauche (nombre négatif) d'une fois la largeur d'une image */
+        transform: translate(calc(-1 * var(--largImage)));
+    }
+    50% {
+        /* De 2 fois... */
+        transform: translate(calc(-2 * var(--largImage)));
+    }
+    75% {
+        /* De 3 fois comme ça on a vu les 4 images */
+        transform: translate(calc(-3 * var(--largImage)));
+    }
+    100% {
+        /* Puis on revient à l'image initiale */
+        transform: translate(0);
+    }
+}
+
+
+.slide {
+    position : relative ;
+}
+
+.slide img {
+    vertical-align: bottom ;
+}
+
+.slide p {
+    font-size: 1.5em;
+    color: #fff;
+    font-family: 'Montserrat';
+    margin: 20px;
+    text-align: center;
+    padding : 14px;
+    background-color: #000;
+    opacity: 1;
+
+    width: 0% ;     
+    position : absolute ;
+    bottom : 0px ;
+    left: 0px ;
+}
+
+.slide p span {
+    display: block;
+    margin-top: 6px;
+    font-style: italic;
+    font-size: 0.5em;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/* Les différents paramètres définissant le texte:*/
+
+
+h2{
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Kite One';
+    color: #15428E;
+}
+
+p{
+    font-size: 21px;
+    text-align: left;
+    font-family: 'Montserrat';
+    color: #000000;
+    margin: 20px;
+}
+
+
+/* Les différents paramètres définissant les div:*/
+
+
+#container {
+    /* Activation de flex sur le parent.
+       Les blocs enfants (les viv de class bloc ici) sont désormais des composants flexibles et ne s'empilent plus du haut vers le bas selon l'ordre d'écrire comme les blocs traditionnels
+    */
+    display : flex ;
+
+    /* S'il reste de la place dans le parent, il est réparti entre les items enfants (les div bloc ici) */
+    justify-content : space-between ;
+
+    /* les items enfants (les div bloc ici) peuvent passer à la ligne si ça manque de place sur la ligne en cours */    
+    flex-wrap: wrap ;
+    padding: 20px;
+    background-image: url("https://images.pexels.com/photos/4569372/pexels-photo-4569372.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.bloc {
+
+
+    /* Les items flexibles ne sont pas autorisés à grossir ou à rétrécir */
+
+    flex-grow: 0 ;
+    flex-shrink: 0 ;
+
+    background-color : rgba(255, 255, 255, 0.76) ;
+    border-radius : 15px ;
+    border-width : 3px ;
+    border: none;
+    box-shadow: 10px 10px 5px 0px #312f2fa9;
+    margin: 50px;
+    width: 600px;
+}
+
+
+/* Les différents paramètres définissant les boutons:*/
+
+.center{
+
+    margin: 50px;
+    text-align: center;
+}
+
+.center a{
+    padding-left: 30px;
+    padding-right: 30px;
+    cursor: pointer;
+    width: auto;
+    height: 50px;
+    font-size: 25px;
+    font-family: 'Montserrat';
+    border-radius: 50px;
+    border: none;
+    color :#fff;
+    background-color: #15428E;
+    text-align: center;
+    text-decoration: none;
+}
+
+.center a:hover{
+    background: linear-gradient(#3A8EBA, #15428e);
+}
+
+
+/* Les différents paramètres définissant le footer:*/
+
+
+.footer footer{
+    display : flex ;
+    justify-content : space-between;
+    padding: 0px;
+}
+
+.footer a{
+    text-decoration: none;
+    color: #FFF;
+    
+}
+
+
+
+.footer{
+
+    background-color: #303030;
+    width: 100%;
+    height: 200px;
+    bottom: 0px;
+    font-family: 'Montserrat';
+
+}
+
+
+.footer ul{
+    list-style-type: none ;
+    border: none;
+    display: flex;
+    margin-top: 0px;
+    padding: none;
+    width: auto;
+    height: auto;
+}
+
+.footer li{
+    padding: 20px;
+}
+
+
+footer{
+    position:absolute;
+    bottom:0px;
+    left: 0px;
+    right:0px;
+    width:100%;
+    height:80px;
+    background-color: #000000;
+}
+
+footer ul{
+    margin: auto;
+    display: flex;
+    list-style-type: none ;
+}
+
+footer li{
+    padding: 20px;
+    list-style-type: none ;
+}
+
+
+.footer a:hover{
+    color: #3A8EBA;
+}
+
+address {
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+}
+

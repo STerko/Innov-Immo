@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kite+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="CSS/bien.css"/>
+        <link rel="shortcut icon" href="media/fav.png"/>
+        <title>Achat et Location</title>
+    </head>
+
+    <body>
+
+        <!--------------------------------------------Titre du site---------------------------------------->
+    
+
+        <header><h1><a href="index.html">Innov'Immo</a></h1></header>
+
+        <!------------------------------------------Barre de Naviguation----------------------------------------->
+
+        <nav id="simple">
+            <ul class="brand">
+                <li class="logo"><a href="index.html"><img src="media/logo.png" alt="logo" /></a></li>
+            </ul>
+            <ul class="items">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="biens.html">Liste des biens</a></li>
+                <li><a href="agences.html">Nos agences</a></li>
+                <li><a href="apropos.html">A propos</a></li>
+                <li><input id="searchbar" type="text" name="barre" placeholder="Recherchez.."></li>
+            </ul>
+        </nav>
+
+        <!------------------------------------Les Div de données JSON----------------------------------->
+        
+        <div id="container">
+            <h2>ACHAT ET LOCATION</h2>
+        </div>   <!--on créer un contenant --->
+
+
+
+        <script src="json/biens.js"></script>  <!--on importe le fichier JSON --->
+
+    
+        <script>
+            
+            data = JSON.parse(lesdatasbiens);
+
+            var container_element = document.getElementById("container");  // on prend la valeur  "container"
+            
+            for (i in data) {
+
+                // 1ere etape : creer des elements (balises) dans des variables
+
+                var div_biens = document.createElement("div");
+                div_biens.className = "bien";
+
+                var typedebien = document.createElement("h2");
+                var ville = document.createElement("p");
+                var cp = document.createElement("p");
+                var rue = document.createElement("p");
+                var superficieint = document.createElement("p");
+                var superficieext = document.createElement("p");
+                var nbdepiece = document.createElement("p");
+                var typedecontrat = document.createElement("p");
+                var prix = document.createElement("p");
+                var img1 = document.createElement("img");
+                var img2 = document.createElement("img");
+                var img3 = document.createElement("img");
+                var img4 = document.createElement("img");
+                var description = document.createElement("p");
+
+                    
+
+                // 2eme etape : prendre le contenu des variables crées et remplies ci dessus et les placer quelque part 
+
+                container_element.appendChild(div_biens);
+                div_biens.appendChild(typedebien);
+                div_biens.appendChild(ville);
+                div_biens.appendChild(cp);
+                div_biens.appendChild(rue);
+                div_biens.appendChild(superficieint);
+                div_biens.appendChild(superficieext);
+                div_biens.appendChild(nbdepiece);
+                div_biens.appendChild(typedecontrat);
+                div_biens.appendChild(prix);
+                div_biens.appendChild(img1);
+                div_biens.appendChild(img2);
+                div_biens.appendChild(img3);
+                div_biens.appendChild(img4);
+                div_biens.appendChild(description);
+
+
+                // 3eme etape : mettre du contenu dans les balises créées
+                
+                typedebien.innerHTML = "Type: " + data[i].typedebien;
+                ville.innerHTML = "Ville: " + data[i].ville;
+                cp.innerHTML = "Code postal: " + data[i].cp;
+                rue.innerHTML = "Rue: " + data[i].rue;
+                superficieint.innerHTML = "Superficie intérieure: " + data[i].superficieint + "m²";
+                superficieext.innerHTML = "Superficie extérieure: " + data[i].superficieext + "m²";
+                nbdepiece.innerHTML = "Nombre de pièces: " + data[i].nbdepiece;
+                typedecontrat.innerHTML = "Type de contrat: " + data[i].typedecontrat;
+                prix.innerHTML = "Prix: " + data[i].prix + "€";
+                img1.setAttribute("src","media/photo/" + data[i].img1);
+                img2.setAttribute("src","media/photo/" + data[i].img2);
+                img3.setAttribute("src","media/photo/" + data[i].img3);
+                img4.setAttribute("src","media/photo/" + data[i].img4);
+                description.innerHTML = "Description: " + data[i].description;
+
+            }
+            
+            
+        </script>
+
+
+        <!-----------------------------------------------Footer----------------------------------------------->
+        
+
+        <div class="footer">
+
+
+            <ul>
+                <li class="logo"><a href="index.html"><img src="media/logo2.png" alt="logo" /></a></li>
+                <li><a href="biens.html">Acheter</a></li>
+                <li><a href="agences.html">Agences</a></li>
+                <li><a href="apropos.html">A propos</a></li>
+                
+            </ul>
+
+            <footer> 
+                
+                <ul>
+                    <li><a href="formulaire.html">Nous contacter</a></li>
+                    <li><address><a href="index.html">&copy;TERKOWSKY Sarah (TP4)</a></address></li>
+                </ul>
+   
+            </footer>
+            
+        </div>
+
+
+    
+    </body>
+</html>

@@ -1,0 +1,286 @@
+body {
+    margin: 0px;
+    padding:0px;
+    position: relative;
+    min-height: 100px;
+}
+
+
+/* Les différents paramètres définissant le titre:*/
+
+
+h1{
+    
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Kite One';
+}
+
+h1 a{
+    
+    text-decoration: none;
+    color: #15428E;
+    
+}
+
+
+/* Les différents paramètres définissant la barre de naviguation:*/
+
+
+nav#simple {
+    font-family :'Montserrat';
+    background-color: #15428E;
+    
+    /* Les 2 enfants UL seront positionnés en flex, premier "à gauche", le second "à droite" */
+    display : flex ;
+    justify-content : space-between ;
+    align-items: center ;
+
+    line-height: 60px;
+
+    align-items: stretch;
+
+}
+
+nav#simple ul {
+    margin : 0px;
+    padding : 0px;
+
+    list-style-type: none ;
+
+    /* Encore du flex pour les li de chaque ul */
+    
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav#simple li.logo img {
+    vertical-align: middle;
+}
+
+nav#simple li {
+    padding-left : 20px ;
+    padding-right : 20px ;
+}
+
+nav#simple ul.items li:hover {
+    background: linear-gradient(#3A8EBA, #15428e);
+}
+
+
+nav#simple a {
+    text-decoration : none ;
+    color : #fff ;
+}
+        
+nav#simple li:hover a {
+    color : #FFF;
+}
+
+#searchbar{
+    padding:15px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+/* Les différents paramètres définissant le texte:*/
+
+
+h2{
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Kite One';
+    color: #15428E;
+    text-align: left;
+    margin:30px;
+}
+
+
+p{
+    margin: 20px;
+    font-size: 21px;
+    font-family: 'Montserrat';
+    color: #000000;
+    text-align: left;
+}
+
+
+/* Les différents paramètres définissant les div:*/
+
+
+#container{
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap ;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 500px;
+    background-color : rgba(255, 255, 255, 0.76) ;
+    border-radius: 15px;
+    border-width: 3px;
+    border-style: none;
+    border-color: #15428E;
+    padding-left: 100px;
+    padding-right: 600px;
+    box-shadow: 10px 10px 5px 0px #312f2fa9;
+}
+
+div{
+
+    display: inline-block;
+    margin: 0px;
+    width : 350px ;
+    background-color : #ffffff ;
+    padding : 25px ;
+}
+
+
+/* Les différents paramètres définissant les boutons:*/
+
+
+.button{
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: #15428E;
+    color: #fff;
+    text-align: center;
+
+}
+
+.button:hover{
+
+    background: linear-gradient(#3A8EBA, #15428e);
+}
+
+
+/* Les différents paramètres définissant le formulaire:*/
+
+
+form{
+    position: center;
+    margin-left: 0px;
+    
+}
+
+input{
+    font-family: 'Montserrat';
+    padding: 20px;
+    border-radius : 25px ;
+    border-style : solid ;
+    border-color : #15428E ;
+    border-width : 3px ;
+    padding-right: 150px;
+}
+
+.form{
+    display: flex;
+    width: 100%;
+    
+}
+
+.txt input{
+    display: inline;
+}
+
+.txt{
+    font-family: 'Montserrat';
+}
+
+.form input{
+    margin: 20px;
+    width: 200px;
+}
+
+textarea{
+    font-family: 'Montserrat';
+    border-radius : 25px ;
+    border-style : solid ;
+    border-color : #15428E ;
+    border-width : 3px ;
+    resize: none;
+    width: 500px;
+    overflow: auto;
+    border-radius: 10px;
+    padding: 15px;
+    padding-right: 10px;;
+    vertical-align: top;
+    margin-left: 25px;
+}
+
+
+/* Les différents paramètres définissant le footer:*/
+
+
+.footer footer{
+    display : flex ;
+    justify-content : space-between;
+    padding: 0px;
+}
+
+.footer a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.footer{
+
+    background-color: #303030;
+    width: 100%;
+    height: 200px;
+    bottom: 0px;
+    font-family: 'Montserrat';
+    padding: 0px;
+}
+
+.footer ul{
+    list-style-type: none ;
+    border: none;
+    display: flex;
+    margin-top: 0px;
+    padding: none;
+    width: auto;
+    height: auto;
+}
+
+.footer li{
+    padding: 20px;
+}
+
+footer {
+    position:absolute;
+    bottom:0px;
+    left: 0px;
+    right:0px;
+    width:100%;
+    height:80px;
+    background-color: #000000;
+}
+
+
+footer ul{
+    margin: auto;
+    display: flex;
+    list-style-type: none ;
+}
+
+footer li{
+    padding: 20px;
+    list-style-type: none ;
+}
+
+.footer a:hover{
+    color: #3A8EBA;
+}
+
+address {
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+}

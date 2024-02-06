@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kite+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="CSS/form.css"/>
+        <link rel="stylesheet" href="php/envoieMail.php"/>
+        <link rel="shortcut icon" href="media/fav.png"/>
+        <title>Formulaire</title>
+    </head>
+
+    <body>
+
+        <!-----------------------------------Titre cliquable de notre site---------------------------------->
+
+        <header><h1><a href="index.html">Innov'Immo</a></h1></header>
+
+        <!----------------------------------------Barre de naviguation-------------------------------------->
+        
+        <nav id="simple">
+            <ul class="brand">
+                <li class="logo"><a href="index.html"><img src="media/logo.png" alt="logo" /></a></li>
+            </ul>
+            <ul class="items">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="biens.html">Liste des biens</a></li>
+                <li><a href="agences.html">Nos agences</a></li>
+                <li><a href="apropos.html">A propos</a></li>
+                <li><input id="searchbar" type="text" name="barre" placeholder="Recherchez.."></li>
+            </ul>
+        </nav>
+
+        <!-----------------------------------------------Formulaire---------------------------------------------->
+
+            <h2>Nous contacter:</h2>
+
+            <p>Grâce à ce formulaire, vous pouvez nous poser vos questions et nos conseillers vous répondrons dans les plus brefs délais en fonction du nombre de questions reçues.
+
+            <div id="container">
+
+                <form action="envoieMail.php" method="get">
+
+                        <!-- champ caché pour transmettre aussi le destinataire. On pourrait ne pas mentionner ce champs dans le formulaire et indiquer directement l'adresse destinataire dans le script lié -->
+                    
+                        <!-- Les champs de saisie, transmis au script aussi  -->
+                        <!-- J'ai zappé les aspects esthétique (vous avez boostrap ou autre), 
+                        d'accessibilité (label, tabindex...), 
+                        les élements de contrôle et d'intégrité (required...) etc pour me focaliser sur l'essentiel dans cet exemple -->
+                        
+                        
+                        <div class="form">
+                            
+                            <input type="email" name="dest" placeholder="Email du destinataire" required="required"/>
+                            <input type="text" name="sujet" placeholder="Saisir l'objet du message" required="required"/>
+                        
+                        </div>
+                
+                        <div class="form">
+                            
+                            <input type="text" name="nom" placeholder="Saisir votre Nom" required="required"/>
+                            <input type="text" name="prenom" placeholder="Saisir votre Prénom" required="required"/>
+                        </div>
+
+
+                        <script>
+
+                            function checkPattern(elem) {
+                            if(!elem.number.match('^' + elem.getAttribute('pattern') + '$')) {
+                                alert('The value must be 10 digits.');
+                            }}   
+
+                        </script>
+
+
+                        <div class="form">
+                            <input name="tel" placeholder="Saisir votre numéro de téléphone" required="required" maxlength="10" pattern="[0-9]{10}" onchange="checkPattern(this);">
+                            <input type="email" name="exped" placeholder="Saisir votre adresse email" required="required">
+                        </div> 
+
+
+                        <div class="form"><textarea name="message" maxlength="500" placeholder="Ecrire votre message ici..."></textarea></div>
+
+
+
+                        <div class="retour">
+
+                            <div class="txt"><input type="checkbox" name="rgpd" value="oui" />J'ai pris connaissance de la politique de protection des données personnelles et souhaite recevoir des offres commerciales ou informations.</div>
+                            <div class="txt"><input type="checkbox" name="norobot" value="oui" />Je ne suis pas un robot</div>
+                        </div>
+
+                        <div class="form">
+                            <input type="submit" value="Envoyer" class="button"/>
+                            <input type="reset" value="Rénitialiser" class="button"/>
+                        </div>
+                        
+                
+                        <!-- Je pense que vous n'aurez pas de difficulté à étendre ici la liste des champs de saisie
+                        et à modifier en conséquence le script envoieMail.php lié pour tenir compte des champs supplémentaire -->
+
+                </form>
+
+            </div>
+
+            
+        <!-----------------------------------------------Footer----------------------------------------------->
+
+            <div class="footer">
+
+                <ul>
+                    <li class="logo"><a href="index.html"><img src="media/logo2.png" alt="logo" /></a></li>
+                    <li><a href="biens.html">Acheter</a></li>
+                    <li><a href="agences.html">Agences</a></li>
+                    <li><a href="apropos.html">A propos</a></li>
+                    
+                </ul>
+
+                <footer> 
+                    
+                    <ul>
+                        <li><a href="formulaire.html">Nous contacter</a></li>
+                        <li><address><a href="index.html">&copy;WILHELM Alan (TP4)</a></address></li>
+                    </ul>
+    
+                </footer>
+                
+            </div>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kite+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="CSS/agen.css"/>
+        <link rel="shortcut icon" href="media/fav.png"/>
+        <title>Agences</title>
+    </head>
+
+    <body>
+
+        <!-----------------------------------Titre cliquable de notre site---------------------------------->
+
+        <header><h1><a href="index.html">Innov'Immo</a></h1></header>
+
+        <!----------------------------------------Barre de naviguation-------------------------------------->
+        
+
+        <nav id="simple">
+            <ul class="brand">
+                <li class="logo"><a href="index.html"><img src="media/logo.png" alt="logo" /></a></li>
+            </ul>
+            <ul class="items">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="biens.html">Liste des biens</a></li>
+                <li><a href="agences.html">Nos agences</a></li>
+                <li><a href="apropos.html">A propos</a></li>
+                <li><input id="searchbar" type="text" name="barre" placeholder="Recherchez.."></li>
+            </ul>
+        </nav>
+
+        <!----------------------------------------Carte de France-------------------------------------->
+
+        <div id="carte">
+            <figure>
+                <img src="media/france/Carte_France.png" alt="Carte de France" />
+                <div class="spot" style="left:280px;top:120px;"><div>Paris</div></div>
+                <div class="spot" style="left:100px;top:150px;"><div>Rennes</div></div>
+                <div class="spot" style="left:250px;top:425px;"><div>Toulouse</div></div>
+                <div class="spot" style="left:412px;top:468px;"><div>Marseille</div></div>
+                <div class="spot" style="left:475px;top:140px;"><div>Saint-Die-Des-Vosges</div></div>
+                <div class="spot" style="left:442px;top:155px;"><div>Epinal</div></div>
+                <div class="spot" style="left:144px;top:370px;"><div>Bordeaux</div></div>
+                <div class="spot" style="left:430px;top:345px;"><div>Grenoble</div></div>
+
+            </figure>
+        </div>
+
+        <div id="separ"></div> <!--Div séparateur-->
+
+
+
+        <!------------------------------------Les Div de données JSON----------------------------------->
+        
+        <div id="container">
+            <h2>Agences de notre entreprise:</h2>
+        </div>   <!--on créer un contenant --->
+
+        <script src="json/agence.js"></script>  <!-- on inclut le fichier JS --->
+
+        <script>
+            
+            data = JSON.parse(lesdata);
+
+
+            var container_element = document.getElementById("container");  // on prend la valeur  "container"
+            
+            for (i in data) {
+
+                // 1ere etape : creer des elements (balises) dans des variables
+
+                var div_agences = document.createElement("div");
+                div_agences.className = "agence";                
+
+                var nom = document.createElement("h2");
+                var lieu = document.createElement("p");
+                var respNom = document.createElement("p");
+                var respCivil = document.createElement("p");
+                var personnel = document.createElement("p");
+                var photo = document.createElement("img");
+                var tel = document.createElement("p");
+                var mel = document.createElement("p");
+                
+
+
+                // 2eme etape : prendre le contenu des variables crées et remplies ci dessus et les placer quelque part 
+
+                container_element.appendChild(div_agences);
+                div_agences.appendChild(nom);
+                div_agences.appendChild(lieu);
+                div_agences.appendChild(respNom);
+                div_agences.appendChild(respCivil);
+                div_agences.appendChild(personnel);
+                div_agences.appendChild(photo);
+                div_agences.appendChild(tel);
+                div_agences.appendChild(mel);
+
+
+
+                // 3eme etape : mettre du contenu dans les balises créées
+                
+                nom.innerHTML =  data[i].nom;
+                lieu.innerHTML = "Localisation : " + data[i].lieu;
+                respNom.innerHTML = "Responsable : " + data[i].respNom;
+                respCivil.innerHTML = "Civilité : " + data[i].respCivil;
+                personnel.innerHTML = "Personnel de l'agence : " + data[i].personnel;
+                photo.setAttribute("src","media/agent/" + data[i].photo);
+                tel.innerHTML = "Numéro de télephonne : " + data[i].tel;
+                mel.innerHTML = "Email : " + data[i].mel;
+            
+            }
+
+        </script>
+
+
+        <!-----------------------------------------------Footer----------------------------------------------->
+
+        <div class="footer">
+
+
+            <ul>
+                <li class="logo"><a href="index.html"><img src="media/logo2.png" alt="logo" /></a></li>
+                <li><a href="biens.html">Acheter</a></li>
+                <li><a href="agences.html">Agences</a></li>
+                <li><a href="apropos.html">A propos</a></li>
+                
+            </ul>
+
+            <footer> 
+                
+                <ul>
+                    <li><a href="formulaire.html">Nous contacter</a></li>
+                    <li><address><a href="index.html">&copy;WILHELM Alan (TP4)</a></address></li>
+                </ul>
+   
+            </footer>
+            
+        </div>
+        
+    </body>
+</html>
